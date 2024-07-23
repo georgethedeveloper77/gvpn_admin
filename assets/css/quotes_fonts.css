@@ -1,0 +1,36 @@
+/*=======fonts for Anton========*/
+          @font-face {
+            font-family: 'Anton';
+            src: url('../fonts/quotes_fonts/Anton.ttf');
+          }
+
+/*=======fonts for Cinzel========*/
+          @font-face {
+            font-family: 'Cinzel';
+            src: url('../fonts/quotes_fonts/Cinzel.ttf');
+          }
+
+/*=======fonts for Lemonada========*/
+          @font-face {
+            font-family: 'Lemonada';
+            src: url('../fonts/quotes_fonts/Lemonada.ttf');
+          }
+
+/*==fonts for Pacifico========*/
+          @font-face {
+            font-family: 'Pacifico';
+            src: url('../fonts/quotes_fonts/Pacifico.ttf');
+          }
+
+/*=======fonts for Poppins========*/
+          @font-face {
+            font-family: 'Poppins';
+            src: url('../fonts/quotes_fonts/Poppins.ttf');
+          }
+
+/*=======fonts for Roboto========*/
+          @font-face {
+            font-family: 'Roboto';
+            src: url('../fonts/quotes_fonts/Roboto.ttf');
+          }
+
