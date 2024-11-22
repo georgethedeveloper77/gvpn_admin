@@ -1089,6 +1089,13 @@
 
 					$response['status']=1;
 				}
+				else if($table=='willdev_redeem')
+				{
+					$deleteSql="DELETE FROM willdev_redeem WHERE `id` IN ($ids)";
+					mysqli_query($mysqli, $deleteSql);
+
+					$response['status']=1;
+				}
 				else if($table=='willdev_language')
 				{
 					$sql="SELECT * FROM willdev_language WHERE id IN ($ids)";

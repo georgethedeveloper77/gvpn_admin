@@ -33,18 +33,19 @@ $oneConnect = $data['one_connect'];
   <meta name="viewport"content="width=device-width, initial-scale=1.0">
   <title> <?php if(isset($page_title)){ echo $page_title.' | '.APP_NAME; }else{ echo APP_NAME; } ?></title>
   <link rel="icon" href="images/<?php echo APP_LOGO;?>" sizes="16x16">
-  <link rel="stylesheet" type="text/css" href="https://gvpn.wordsofthebroken.com/assets/css/vendor.css">
-  <link rel="stylesheet" type="text/css" href="https://gvpn.wordsofthebroken.com/assets/css/flat-admin.css">
+  <link rel="icon" href="images/<?php echo APP_LOGO;?>" sizes="16x16">
+  <link rel="stylesheet" type="text/css" href="base_urls/assets/css/vendor.css">
+  <link rel="stylesheet" type="text/css" href="base_urls/assets/css/flat-admin.css">
 
   <!-- Theme -->
-  <link rel="stylesheet" type="text/css" href="https://gvpn.wordsofthebroken.com/assets/css/theme/blue-sky.css">
-  <link rel="stylesheet" type="text/css" href="https://gvpn.wordsofthebroken.com/assets/css/theme/blue.css">
-  <link rel="stylesheet" type="text/css" href="https://gvpn.wordsofthebroken.com/assets/css/theme/red.css">
-  <link rel="stylesheet" type="text/css" href="https://gvpn.wordsofthebroken.com/assets/css/theme/yellow.css">
+  <link rel="stylesheet" type="text/css" href="base_urls/assets/css/theme/blue-sky.css">
+  <link rel="stylesheet" type="text/css" href="base_urls/assets/css/theme/blue.css">
+  <link rel="stylesheet" type="text/css" href="base_urls/assets/css/theme/red.css">
+  <link rel="stylesheet" type="text/css" href="base_urls/assets/css/theme/yellow.css">
 
-  <link rel="stylesheet" type="text/css" href="https://gvpn.wordsofthebroken.com/assets/sweetalert/sweetalert.css">
+  <link rel="stylesheet" type="text/css" href="base_urls/assets/sweetalert/sweetalert.css">
 
-  <script src="https://gvpn.wordsofthebroken.com/assets/ckeditor/ckeditor.js"></script>
+  <script src="base_urls/assets/ckeditor/ckeditor.js"></script>
 
   <?php 
   if(!empty($css_files)){
@@ -157,7 +158,7 @@ $oneConnect = $data['one_connect'];
 
       <!-- New Vpn Side Bar-->
 
-          <?php if($oneConnect == "0"){?>
+        <?php if($oneConnect == "0"){?>
         <li <?php if($currentFile=="add_willdev_servers.php"){?>class="active"<?php }?>> <a href="add_willdev_servers.php">
             <div class="icon"> <i class="fa fa-plus-circle" aria-hidden="true"></i> </div>
             <div class="title">Add Servers</div>
@@ -183,51 +184,49 @@ $oneConnect = $data['one_connect'];
 
 
 
-
         <li <?php if($currentFile=="manage_users.php"){?>class="active"<?php }?>> <a href="manage_users.php">
             <div class="icon"> <i class="fa fa-user" aria-hidden="true"></i> </div>
             <div class="title">Users List</div>
           </a> 
         </li>
 
-              <li <?php if($currentFile=="add_ads.php?edit=2"){?>class="active"<?php }?>> <a href="add_ads.php?edit=2">
+        <li <?php if($currentFile=="redemption_code.php" or $currentFile=="add_redemption.php" or $currentFile=="edit_redemption.php"){?>class="active"<?php }?>> <a href="redemption_code.php">
+  <div class="icon"> <i class="fa fa-trophy" aria-hidden="true"></i> </div>
+  <div class="title">Redeem Option</div>
+</a> 
+</li>
+<li <?php if($currentFile=="ads_type.php?edit=2"){?>class="active"<?php }?>> <a href="ads_type.php?edit=2">
             <div class="icon"> <i class="fa fa-plus-square" aria-hidden="true"></i> </div>
             <div class="title">Facebook Ads</div>
           </a> 
         </li>
 
-        <li <?php if($currentFile=="add_ads.php?edit=1"){?>class="active"<?php }?>> <a href="add_ads.php?edit=1">
+        <li <?php if($currentFile=="ads_type.php?edit=1"){?>class="active"<?php }?>> <a href="ads_type.php?edit=1">
             <div class="icon"> <i class="fa fa-plus-square" aria-hidden="true"></i> </div>
             <div class="title">Admob Ads</div>
           </a> 
         </li>
-              
-                  <li <?php if($currentFile=="add_ads.php?edit=3"){?>class="active"<?php }?>> <a href="add_ads.php?edit=3">
+        
+
+        <li <?php if($currentFile=="ads_type.php?edit=3"){?>class="active"<?php }?>> <a href="ads_type.php?edit=3">
             <div class="icon"> <i class="fa fa-plus-square" aria-hidden="true"></i> </div>
             <div class="title">StartApp Ads</div>
           </a> 
         </li>
         
-
-        
-                <li <?php if($currentFile=="add_ads.php?edit=4"){?>class="active"<?php }?>> <a href="add_ads.php?edit=4">
+                <li <?php if($currentFile=="ads_type.php?edit=4"){?>class="active"<?php }?>> <a href="ads_type.php?edit=4">
             <div class="icon"> <i class="fa fa-plus-square" aria-hidden="true"></i> </div>
             <div class="title">Unity Ads</div>
           </a> 
         </li>
 
-       
-                <li <?php if($currentFile=="add_ads.php?edit=5"){?>class="active"<?php }?>> <a href="add_ads.php?edit=5">
+                <li <?php if($currentFile=="ads_type.php?edit=5"){?>class="active"<?php }?>> <a href="ads_type.php?edit=5">
             <div class="icon"> <i class="fa fa-plus-square" aria-hidden="true"></i> </div>
             <div class="title">Appodeal Ads</div>
           </a> 
         </li>
 
-        <li <?php if($currentFile=="willdev_subscription.php"){?>class="active"<?php }?>> <a href="willdev_subscription.php">
-            <div class="icon"> <i class="fa fa-plus-square" aria-hidden="true"></i> </div>
-            <div class="title">IAP Subscription</div>
-          </a> 
-        </li>
+       
         
 
         <!--new setting -->
@@ -241,6 +240,12 @@ $oneConnect = $data['one_connect'];
         <li <?php if($currentFile=="alert_popup.php"){?>class="active"<?php }?>> <a href="alert_popup.php">
             <div class="icon"> <i class="fa fa-wrench" aria-hidden="true"></i> </div>
             <div class="title">Alert Popup</div>
+          </a> 
+        </li>
+        
+        <li <?php if($currentFile=="subscription.php"){?>class="active"<?php }?>> <a href="subscription.php">
+            <div class="icon"> <i class="fa fa-sliders" aria-hidden="true"></i> </div>
+            <div class="title">Subscription</div>
           </a> 
         </li>
 
@@ -280,6 +285,7 @@ $oneConnect = $data['one_connect'];
   <div class="title">Reward Setting</div>
 </a> 
 </li>
+
 
 
 

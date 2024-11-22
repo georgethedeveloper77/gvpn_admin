@@ -173,6 +173,8 @@
           'user_youtube'  =>  trim($_POST['user_youtube']),
           'user_instagram'  =>  trim($_POST['user_instagram'])
         );
+        
+        $data['is_premium'] = (isset($_POST['is_premium'])) ? 1 : 0;
 
         if($_FILES['user_image']['name']!="")
         { 
@@ -311,6 +313,8 @@
                   </div>
                 </div>
               </div>
+
+              <br>
 
               <div class="form-group">
                 <div class="col-md-9 col-md-offset-3">

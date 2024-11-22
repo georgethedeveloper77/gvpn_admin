@@ -44,7 +44,7 @@ if(isset($_GET['delete_ads'])){
                         <th>
                           Server Name
                         </th>
-                        <th hidden>
+                        <th>
                           Flag URL
                         </th>
                         <th>
@@ -75,7 +75,7 @@ if(isset($_GET['delete_ads'])){
                           <td>
                             <?php echo $row['serverName'];?>
                           </td>
-                          <td hidden >
+                          <td>
                           <?php echo $row['flagURL'];?>
                           </td>
                           <td>
@@ -100,11 +100,11 @@ if(isset($_GET['delete_ads'])){
                           <td>
                           <?php echo $row['vpnPassword'];?>
                           </td>
-                          <td class="td-actions text-right">
-                              <a type="button" rel="tooltip" title="Edit Server" href="add_willdev_servers.php?edit=<?php echo $row['id']?>" class="btn btn-primary">
+                         <td class="td-actions text-right">
+                              <a type="button" rel="tooltip" title="Edit Server" href="add_willdev_servers.php?edit=<?php echo $row['id']?>" class="btn btn-primary btn-link btn-sm">
                                 <i class="material-icons">edit</i>
                               </a>
-                               <a type="button" rel="tooltip" title="Delete Server" href="total_willdev_servers.php?delete=<?php echo $row['id']?>" class="btn btn-danger">
+                              <a type="button" rel="tooltip" title="Delete Server" href="total_willdev_servers.php?delete=<?php echo $row['id']?>" class="btn btn-danger">
                                 <i class="material-icons">close</i>
                               </a>
                             </td>

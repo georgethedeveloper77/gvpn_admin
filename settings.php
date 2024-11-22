@@ -12,6 +12,10 @@ $qry="SELECT * FROM willdev_settings where id='1'";
 $result=mysqli_query($mysqli,$qry);
 $settings_row=mysqli_fetch_assoc($result);
 
+$qry = "SELECT * FROM willdev_proper_settings WHERE setting='app_terms_of_service'";
+$result = mysqli_query($mysqli,$qry);
+$row_tos = mysqli_fetch_assoc($result);
+
 if(isset($_POST['submit']))
 {
 
@@ -99,6 +103,19 @@ else if(isset($_POST['app_pri_poly']))
 
 }
 
+else if(isset($_POST['btn_terms_of_service']))
+{
+
+  $data = array('value'  =>  addslashes($_POST['app_terms_of_service']));
+
+  $settings_edit= Update('willdev_proper_settings', $data, "WHERE setting='app_terms_of_service'");
+
+  $_SESSION['msg']="11";
+  header("Location: settings.php");
+  exit;
+
+}
+
 else if(isset($_POST['account_delete']))
 {
 
@@ -135,6 +152,7 @@ else if(isset($_POST['account_delete']))
           <li role="presentation"><a href="#api_faq" aria-controls="api_faq" role="tab" data-toggle="tab">FAQ Content</a></li>
 
           <li role="presentation"><a href="#api_privacy_policy" aria-controls="api_privacy_policy" role="tab" data-toggle="tab"> Privacy Policy</a></li>
+          <li role="presentation"><a href="#api_terms_of_service" aria-controls="api_terms_of_service" role="tab" data-toggle="tab">Terms of Service</a></li>
 
 
         </ul>
@@ -346,6 +364,43 @@ else if(isset($_POST['account_delete']))
                       <div class="form-group">
                         <div class="col-md-9 col-md-offset-3">
                           <button type="submit" name="app_pri_poly" class="btn btn-primary">Save</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          
+          <div role="tabpanel" class="tab-pane" id="api_terms_of_service">   
+            <div class="rows">
+              <div class="col-md-12">
+                <form action="" name="api_terms_of_service" method="post" class="form form-horizontal" enctype="multipart/form-data">
+                  <div class="section">
+                    <div class="section-body">
+                      <?php 
+                      if(file_exists('terms_of_service.php'))
+                      {
+                        ?>
+                        <div class="form-group">
+                          <label class="col-md-3 control-label">App Terms of Service URL :-</label>
+                          <div class="col-md-9">
+                            <input type="text" readonly class="form-control" value="<?=getBaseUrl().'terms_of_service.php'?>">
+                          </div>
+                        </div>
+                      <?php } ?>
+                      <div class="form-group">
+                        <label class="col-md-3 control-label">App Terms of Service :-</label>
+                        <div class="col-md-9">
+                          <textarea name="app_terms_of_service" id="terms_of_service" class="form-control"><?php echo stripslashes($row_tos['value']);?></textarea>
+                          <script>CKEDITOR.replace( 'terms_of_service' );</script>
+                        </div>
+                      </div>
+                      <br>
+                      <div class="form-group">
+                        <div class="col-md-9 col-md-offset-3">
+                          <button type="submit" name="btn_terms_of_service" class="btn btn-primary">Save</button>
                         </div>
                       </div>
                     </div>

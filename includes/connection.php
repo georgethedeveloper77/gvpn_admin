@@ -5,26 +5,24 @@
  
  	header("Content-Type: text/html;charset=UTF-8");
 	
-	if($_SERVER['HTTP_HOST']=="localhost" or $_SERVER['HTTP_HOST']=="192.168.1.125")
-	{	
-	
-
-		DEFINE ('DB_USER', 'gvpn_user');
-		DEFINE ('DB_PASSWORD', 'm6p^m18!^4Yo');
-		DEFINE ('DB_HOST', 'localhost'); 
-		DEFINE ('DB_NAME', 'gvpn_db');
-	}
-	else
-	{
-		
-
-	 	 DEFINE ('DB_USER', 'gvpn_user');
-		 DEFINE ('DB_PASSWORD', 'm6p^m18!^4Yo');
-		 DEFINE ('DB_HOST', 'localhost'); 
-		 DEFINE ('DB_NAME', 'gvpn_db');
-	}
-
-
+	 if($_SERVER['HTTP_HOST']=="localhost" or $_SERVER['HTTP_HOST']=="192.168.1.125")
+	 {	
+	 
+ 
+		 DEFINE ('DB_USER', 'db_uname');
+		 DEFINE ('DB_PASSWORD', 'db_password');
+		 DEFINE ('DB_HOST', 'db_hname'); 
+		 DEFINE ('DB_NAME', 'db_name');
+	 }
+	 else
+	 {
+		 
+ 
+		   DEFINE ('DB_USER', 'db_uname');
+		  DEFINE ('DB_PASSWORD', 'db_password');
+		  DEFINE ('DB_HOST', 'db_hname'); 
+		  DEFINE ('DB_NAME', 'db_name');
+	 }
 
 
 

@@ -48,7 +48,7 @@
 
 <h2>Privacy Policy</h2>
 
-<?=stripslashes($settings_details['app_privacy_policy'])?>
+<?php  echo htmlspecialchars_decode(stripslashes($settings_details['app_privacy_policy'])); ?>
 
 </body>
 </html>

@@ -2,10 +2,10 @@
 
 
 // include ("includes/validator.php");
-$DBhost = "localhost";
-$DBuser = "gvpn_user";
-$DBpass = "m6p^m18!^4Yo";
-$DBname = "gvpn_db";
+$DBhost = "db_hname";
+$DBuser = "db_uname";
+$DBpass = "db_password";
+$DBname = "db_name";
 
 $DBcon = new MySQLi($DBhost,$DBuser,$DBpass,$DBname);
 
