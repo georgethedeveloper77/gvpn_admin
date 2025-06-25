@@ -1096,6 +1096,20 @@
 
 					$response['status']=1;
 				}
+				else if($table=='willdev_app_language')
+				{
+					$deleteSql="DELETE FROM willdev_app_language WHERE `id` IN ($ids)";
+					mysqli_query($mysqli, $deleteSql);
+
+					$response['status']=1;
+				}
+				else if($table=='willdev_purchase_history')
+				{
+					$deleteSql="DELETE FROM willdev_purchase_history WHERE `id` IN ($ids)";
+					mysqli_query($mysqli, $deleteSql);
+
+					$response['status']=1;
+				}
 				else if($table=='willdev_language')
 				{
 					$sql="SELECT * FROM willdev_language WHERE id IN ($ids)";
@@ -1424,6 +1438,14 @@
 				else if($table=='willdev_payment_mode'){
 
 					$deleteSql="DELETE FROM willdev_payment_mode WHERE `id` IN ($ids)";
+					mysqli_query($mysqli, $deleteSql);
+
+					$response['status']=1;	
+				}
+				
+				else if($table=='willdev_payment_method'){
+
+					$deleteSql="DELETE FROM willdev_payment_method WHERE `id` IN ($ids)";
 					mysqli_query($mysqli, $deleteSql);
 
 					$response['status']=1;	
@@ -1883,6 +1905,29 @@
 			$ids=$_POST['id'];
 
 			delete_quotes_status($ids);
+			
+			$response['status']=1;
+	      	echo json_encode($response);
+			break;
+			
+		case 'cancel_stripe_subscription':
+
+			$user_id=$_POST['user_id'];
+
+			require_once 'vendor/stripe-php/init.php';
+        		    
+            $sql= "SELECT * FROM willdev_payment_method WHERE name='Stripe'";
+            $row_method = mysqli_fetch_assoc(mysqli_query($mysqli, $sql));
+            
+            $stripe = new \Stripe\StripeClient($row_method['private_key']);
+            
+            $query = "SELECT stripe_subscription_id FROM willdev_users WHERE id=$user_id";
+            $row_user = mysqli_fetch_assoc(mysqli_query($mysqli, $query));
+            
+            $stripe_json = "";
+            
+            if ($row_user['stripe_subscription_id'] != "" && $row_user['stripe_subscription_id'] != null)
+                $result = $stripe->subscriptions->cancel($row_user['stripe_subscription_id'], []);
 			
 			$response['status']=1;
 	      	echo json_encode($response);

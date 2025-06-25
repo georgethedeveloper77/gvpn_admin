@@ -16,6 +16,10 @@ $qry = "SELECT * FROM willdev_proper_settings WHERE setting='app_terms_of_servic
 $result = mysqli_query($mysqli,$qry);
 $row_tos = mysqli_fetch_assoc($result);
 
+$qry = "SELECT * FROM willdev_proper_settings WHERE setting='device_limit'";
+$result = mysqli_query($mysqli,$qry);
+$row_device_limit = mysqli_fetch_assoc($result);
+
 if(isset($_POST['submit']))
 {
 
@@ -69,8 +73,14 @@ if(isset($_POST['submit']))
     );
 
   } 
-
+  
+  
   $settings_edit=Update('willdev_settings', $data, "WHERE id = '1'");
+
+    $data = array(
+      'value'  =>  $_POST['device_limit'],
+    );
+   $settings_edit2 = Update('willdev_proper_settings', $data, "WHERE setting = 'device_limit'");
 
 
   $_SESSION['msg']="11";
@@ -147,6 +157,8 @@ else if(isset($_POST['account_delete']))
 
           <li role="presentation" class="active"><a href="#general_settings" aria-controls="general_settings" role="tab" data-toggle="tab">General</a></li>
 
+
+         
           <li role="presentation"><a href="#payment_settings" aria-controls="payment_settings" role="tab" data-toggle="tab">Payment Mode</a></li>
 
           <li role="presentation"><a href="#api_faq" aria-controls="api_faq" role="tab" data-toggle="tab">FAQ Content</a></li>
@@ -249,6 +261,12 @@ else if(isset($_POST['account_delete']))
                           <input type="text" name="app_developed_by" id="app_developed_by" value="<?php echo $settings_row['app_developed_by'];?>" class="form-control">
                         </div>
                       </div> 
+                      <div hidden class="form-group">
+                        <label class="col-md-3 control-label">Device Limit :-</label>
+                        <div class="col-md-6">
+                          <input type="number" name="device_limit" id="device_limit" value="<?php echo $row_device_limit['value'];?>" class="form-control">
+                        </div>
+                      </div>
                       <div class="form-group">
                         <div class="col-md-9 col-md-offset-3">
                           <button type="submit" name="submit" class="btn btn-primary">Save</button>
@@ -260,8 +278,8 @@ else if(isset($_POST['account_delete']))
               </div>
             </div>
           </div>
-
-          <div role="tabpanel" class="tab-pane" id="payment_settings">
+          
+    <div role="tabpanel" class="tab-pane" id="payment_settings">
             <div class="rows">
               <div class="col-md-12">
                 <div class="add_btn_primary"> 
@@ -309,7 +327,8 @@ else if(isset($_POST['account_delete']))
               </div>
             </div>
           </div>
-
+      
+     
           <div role="tabpanel" class="tab-pane" id="api_faq">   
             <div class="rows">
               <div class="col-md-12">
@@ -466,6 +485,29 @@ else if(isset($_POST['account_delete']))
         });
 
       });
+      
+       $(".toggle_btn_b").on("click",function(e){
+        e.preventDefault();
+
+        var _for=$(this).data("action");
+        var _id=$(this).data("id");
+        var _column=$(this).data("column");
+        var _table='willdev_payment_method';
+
+        $.ajax({
+          type:'post',
+          url:'processData.php',
+          dataType:'json',
+          data:{id:_id,for_action:_for,column:_column,table:_table,'action':'toggle_status','willdev_id':'id'},
+          success:function(res){
+            console.log(res);
+            if(res.status=='1'){
+              location.reload();
+            }
+          }
+        });
+
+      });
 
       $(".limit_1").blur(function(e){
         if($(this).val() < 1)
@@ -489,6 +531,59 @@ else if(isset($_POST['account_delete']))
 
         var _id = $(this).data("id");
         var _table = 'willdev_payment_mode';
+
+        swal({
+          title: "<?=$client_lang['are_you_sure_msg']?>",
+          type: "warning",
+          showCancelButton: true,
+          confirmButtonClass: "btn-danger",
+          cancelButtonClass: "btn-warning",
+          confirmButtonText: "Yes!",
+          cancelButtonText: "No",
+          closeOnConfirm: false,
+          closeOnCancel: false,
+          showLoaderOnConfirm: true
+        },
+        function(isConfirm) {
+          if (isConfirm) {
+
+            $.ajax({
+              type: 'post',
+              url: 'processData.php',
+              dataType: 'json',
+              data: {id: _id, for_action: 'delete', table: _table, 'action': 'multi_action'},
+              success: function(res)
+              {
+                $('.notifyjs-corner').empty();
+
+                if(res.status==1){
+                  location.reload();
+                }
+                else{
+                  swal({
+                    title: 'Error!', 
+                    text: "<?=$client_lang['something_went_worng_err']?>", 
+                    type: 'error'
+                  },function() {
+                    location.reload();
+                  });
+                }
+              }
+            });
+          } else {
+            swal.close();
+          }
+
+        });
+      });
+      
+      
+      $(".btn_delete_b").on("click", function(e) {
+
+        e.preventDefault();
+
+        var _id = $(this).data("id");
+        var _table = 'willdev_payment_method';
 
         swal({
           title: "<?=$client_lang['are_you_sure_msg']?>",

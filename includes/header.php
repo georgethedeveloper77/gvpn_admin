@@ -24,6 +24,7 @@ $oneConnect = $data['one_connect'];
 
 ?>
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,7 +33,6 @@ $oneConnect = $data['one_connect'];
   <meta http-equiv="Content-Type"content="text/html;charset=UTF-8"/>
   <meta name="viewport"content="width=device-width, initial-scale=1.0">
   <title> <?php if(isset($page_title)){ echo $page_title.' | '.APP_NAME; }else{ echo APP_NAME; } ?></title>
-  <link rel="icon" href="images/<?php echo APP_LOGO;?>" sizes="16x16">
   <link rel="icon" href="images/<?php echo APP_LOGO;?>" sizes="16x16">
   <link rel="stylesheet" type="text/css" href="base_urls/assets/css/vendor.css">
   <link rel="stylesheet" type="text/css" href="base_urls/assets/css/flat-admin.css">
@@ -190,16 +190,14 @@ $oneConnect = $data['one_connect'];
           </a> 
         </li>
 
-        <li <?php if($currentFile=="redemption_code.php" or $currentFile=="add_redemption.php" or $currentFile=="edit_redemption.php"){?>class="active"<?php }?>> <a href="redemption_code.php">
-  <div class="icon"> <i class="fa fa-trophy" aria-hidden="true"></i> </div>
-  <div class="title">Redeem Option</div>
-</a> 
-</li>
-<li <?php if($currentFile=="ads_type.php?edit=2"){?>class="active"<?php }?>> <a href="ads_type.php?edit=2">
+      <li <?php if($currentFile=="ads_type.php?edit=3"){?>class="active"<?php }?>> <a href="ads_type.php?edit=3">
             <div class="icon"> <i class="fa fa-plus-square" aria-hidden="true"></i> </div>
             <div class="title">Facebook Ads</div>
           </a> 
         </li>
+        
+        
+        
 
         <li <?php if($currentFile=="ads_type.php?edit=1"){?>class="active"<?php }?>> <a href="ads_type.php?edit=1">
             <div class="icon"> <i class="fa fa-plus-square" aria-hidden="true"></i> </div>
@@ -208,24 +206,25 @@ $oneConnect = $data['one_connect'];
         </li>
         
 
-        <li <?php if($currentFile=="ads_type.php?edit=3"){?>class="active"<?php }?>> <a href="ads_type.php?edit=3">
+        <li <?php if($currentFile=="ads_type.php?edit=5"){?>class="active"<?php }?>> <a href="ads_type.php?edit=5">
             <div class="icon"> <i class="fa fa-plus-square" aria-hidden="true"></i> </div>
             <div class="title">StartApp Ads</div>
           </a> 
         </li>
         
-                <li <?php if($currentFile=="ads_type.php?edit=4"){?>class="active"<?php }?>> <a href="ads_type.php?edit=4">
+                <li <?php if($currentFile=="ads_type.php?edit=6"){?>class="active"<?php }?>> <a href="ads_type.php?edit=6">
             <div class="icon"> <i class="fa fa-plus-square" aria-hidden="true"></i> </div>
             <div class="title">Unity Ads</div>
           </a> 
         </li>
 
-                <li <?php if($currentFile=="ads_type.php?edit=5"){?>class="active"<?php }?>> <a href="ads_type.php?edit=5">
+                <li <?php if($currentFile=="ads_type.php?edit=7"){?>class="active"<?php }?>> <a href="ads_type.php?edit=7">
             <div class="icon"> <i class="fa fa-plus-square" aria-hidden="true"></i> </div>
             <div class="title">Appodeal Ads</div>
           </a> 
         </li>
 
+       
        
         
 
@@ -243,7 +242,7 @@ $oneConnect = $data['one_connect'];
           </a> 
         </li>
         
-        <li <?php if($currentFile=="subscription.php"){?>class="active"<?php }?>> <a href="subscription.php">
+        <li <?php if($currentFile=="willdev_subscription.php"){?>class="active"<?php }?>> <a href="willdev_subscription.php">
             <div class="icon"> <i class="fa fa-sliders" aria-hidden="true"></i> </div>
             <div class="title">Subscription</div>
           </a> 
@@ -286,8 +285,16 @@ $oneConnect = $data['one_connect'];
 </a> 
 </li>
 
+<li <?php if($currentFile=="redemption_code.php" or $currentFile=="add_redemption.php" or $currentFile=="edit_redemption.php"){?>class="active"<?php }?>> <a href="redemption_code.php">
+  <div class="icon"> <i class="fa fa-trophy" aria-hidden="true"></i> </div>
+  <div class="title">Redeem</div>
+</a> 
 
 
+<li <?php if($currentFile=="language.php" or $currentFile=="add_language.php" or $currentFile=="edit_redemption.php"){?>class="active"<?php }?>> <a href="language.php">
+  <div class="icon"> <i class="fa fa-trophy" aria-hidden="true"></i> </div>
+  <div class="title">Languae</div>
+</a> 
 
 
 

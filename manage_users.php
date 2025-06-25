@@ -188,7 +188,7 @@ function highlightWords($text, $word){
 								<th>Email/Google/Facebook ID</th>
 								<th>Points</th>				  
 								<th hidden >Verify Status</th>
-								<th>Status</th>
+								<th hidden >Status</th>
 								<th class="text-center">Action</th>
 							</tr>
 						</thead>
@@ -263,7 +263,7 @@ function highlightWords($text, $word){
 										<td><?php echo thousandsNumberFormat(get_total_points($users_row['id']));?></td>		
 	
 
-										<td>
+										<td hidden >
 											<?php if($users_row['status']!="2"){?>
 												<a href="" class="btn_status" data-id="<?=$users_row['id']?>" data-action="suspend" title="Change Status"><span class="badge badge-success badge-icon"><i class="fa fa-check" aria-hidden="true"></i><span>Active</span></span></a>
 
@@ -272,7 +272,6 @@ function highlightWords($text, $word){
 											<?php }?>
 										</td>
 										<td nowrap="">
-											<a href="manage_user_history.php?user_id=<?php echo $users_row['id'];?>&redirect=<?=$redirectUrl?>" class="btn btn-success" data-toggle="tooltip" data-tooltip="User History"><i class="fa fa-history"></i></a>
 
 											<a href="add_user.php?user_id=<?php echo $users_row['id'];?>&redirect=<?=$redirectUrl?>" class="btn btn-primary" data-toggle="tooltip" data-tooltip="Edit"><i class="fa fa-edit"></i></a>
 

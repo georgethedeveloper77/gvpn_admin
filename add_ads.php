@@ -93,11 +93,15 @@ if(isset($_GET['edit']))
                         <div class="form-group">
                             <label class="bmd-label-floating">Ads Type</label>
                             <select name="adType" class="form-control">
-                               <option value="ADMOB" <?php if($adType=="ADMOB"){echo "selected";} ?>>AdMob</option>
+                              <option value="ADMOB" <?php if($adType=="ADMOB"){echo "selected";} ?>>AdMob</option>
                               <option value="FACEBOOK_ADS"  <?php if($adType=="FACEBOOK_ADS"){echo "selected";} ?>>Facebook Ads</option>
-                             <option value="UNITY" <?php if($adType=="UNITY"){echo "selected";} ?>>Unity</option>
+                              
+                              
+                              <option value="STARTAPP" <?php if($adType=="STARTAPP"){echo "selected";} ?>>StartApp</option>
+                              <option value="MPV"  <?php if($adType=="MPV"){echo "selected";} ?>>Mopub Ads</option>
+                              <option value="UNV" <?php if($adType=="UNV"){echo "selected";} ?>>Unity</option>
+                              <option value="APV"  <?php if($adType=="APV"){echo "selected";} ?>>Applovin</option>
                               <option value="APPODEAL" <?php if($adType=="APPODEAL"){echo "selected";} ?>>Appodeal</option>
-                              <option value="STARTAPP" <?php if($adType=="STARTAPP"){echo "selected";} ?>>START.io</option>
                              
                               </select>
                         </div>

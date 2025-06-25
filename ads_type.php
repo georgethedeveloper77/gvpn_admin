@@ -1,6 +1,6 @@
 <?php 
 include('includes/header.php');
-include_once("../database/config_DB.php");
+include_once("database/config_DB.php");
 $is_edit = false;
 $admobID =  "";
 $bannerID =  "";
@@ -29,10 +29,10 @@ if(isset($_GET['edit']))
 ?>
 <body>
   <div class="wrapper ">
-    <?php include('includes/sidenav.php')?>
+
     <div class="main-panel">
       <!-- Navbar -->
-      <?php include("includes/navbar.php")?>
+    
       <!-- End Navbar -->
       
       

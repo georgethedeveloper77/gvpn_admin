@@ -14,30 +14,18 @@
     $total_languages= mysqli_fetch_array(mysqli_query($mysqli,$sql));
     $total_languages = $total_languages['num'];
 
-    $qry_cat="SELECT COUNT(*) as num FROM willdev_category";
-    $total_category= mysqli_fetch_array(mysqli_query($mysqli,$qry_cat));
-    $total_category = $total_category['num'];
 
-    $qry_video="SELECT COUNT(*) as num FROM willdev_video";
-    $total_video = mysqli_fetch_array(mysqli_query($mysqli,$qry_video));
-    $total_video = $total_video['num'];
+
+
 
 
     $qry_users="SELECT COUNT(*) as num FROM willdev_users WHERE id <> 0";
     $total_users = mysqli_fetch_array(mysqli_query($mysqli,$qry_users));
     $total_users = $total_users['num'];
 
-    $sql_img="SELECT COUNT(*) as num FROM willdev_img_status WHERE `status_type`='image'";
-    $total_img = mysqli_fetch_array(mysqli_query($mysqli,$sql_img));
-    $total_img = $total_img['num'];
 
-    $sql_gif="SELECT COUNT(*) as num FROM willdev_img_status WHERE `status_type`='gif'";
-    $total_gif = mysqli_fetch_array(mysqli_query($mysqli,$sql_gif));
-    $total_gif = $total_gif['num'];
 
-    $sql_quotes="SELECT COUNT(*) as num FROM willdev_quotes";
-    $total_quotes = mysqli_fetch_array(mysqli_query($mysqli,$sql_quotes));
-    $total_quotes = $total_quotes['num'];
+
 
     $sql_verify="SELECT COUNT(*) as num FROM willdev_verify_user varify_u, willdev_users user WHERE varify_u.`user_id`=user.`id` AND varify_u.`status`='0' ORDER BY varify_u.`id` DESC";
 
@@ -159,7 +147,7 @@
 <div class="row">
   <div class="clearfix"></div>
   <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12"> 
-    <a href="total_willdev_servers.php" class="card card-banner card-green-light">
+    <a href="total_srv_servers.php" class="card card-banner card-green-light">
       <div class="card-body"> <i class="icon fa fa-list-alt"></i>
         <div class="content">
           <div class="title">Total Servers List</div>
@@ -210,7 +198,7 @@
           <select class="form-control" name="filterByYear" style="box-shadow: none;height: auto;border-radius: 0px;font-size: 16px;">
             <?php 
               $currentYear=date('Y');
-              $minYear=2018;
+              $minYear=2020;
 
               for ($i=$currentYear; $i >= $minYear ; $i--) { 
                 ?>
